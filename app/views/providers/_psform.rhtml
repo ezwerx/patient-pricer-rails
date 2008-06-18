@@ -1,0 +1,29 @@
+            <div-provider>
+
+                <table cellspacing=0 class='single'>
+                    <tr>
+                        <td><%= hidden_field :provider_service, :provider_id %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Provider:&nbsp;</b></td><td><%=h @provider.name %>&nbsp;</td>
+                    </tr>
+                </table>
+
+                <table cellspacing=0 class='single'>
+                    <tr>
+                        <td><b>Service:&nbsp;</b></td>
+                        <td><%= collection_select(:provider_service, :service_id, @services, :id, :cpt_plus_name ) %></td>
+                    </tr>
+                    <tr>
+                        <td><b>List Price:&nbsp;</b></td>
+                        <td><%= text_field :provider_service, :list_price %></td>
+                    </tr>
+                    <tr>
+                        <td><b>Cash Price:&nbsp;</b></td>
+                        <td><%= text_field :provider_service, :cash_price %></td>
+                    </tr>
+                </table>
+
+            </div-provider>
+
+            <div id='div-submit'><%= submit_tag "Save" %></div>

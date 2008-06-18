@@ -1,0 +1,85 @@
+            <!--[form:provider]-->
+            <div id='div-provider'>
+                <table class='single' cellspacing=0>
+                    <tr>
+                        <td class='left-label'><label for="provider_name">Name</label></td>
+                        <td><%= text_field 'provider', 'name'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_address1">Address1</label></td>
+                        <td><%= text_field 'provider', 'address1'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_address2">Address2</label></td>
+                        <td><%= text_field 'provider', 'address2'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_city">City</label></td>
+                        <td><%= text_field 'provider', 'city'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_state">State</label></td>
+                        <td><%= select(:provider, :state, @states)  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_zip">Zip</label></td>
+                        <td><%= text_field 'provider', 'zip'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_phone">Phone</label></td>
+                        <td><%= text_field 'provider', 'phone'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_email">Email</label></td>
+                        <td><%= text_field 'provider', 'email'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_contact">Contact</label></td>
+                        <td><%= text_field 'provider', 'contact'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_url">Url</label></td>
+                        <td><%= text_field 'provider', 'url'  %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_latitude">Latitude</label></td>
+                        <td><%= @provider.latitude %></td>
+                    </tr>
+                    <tr>
+                        <td class='left-label'><label for="provider_longitude">Longitude</label></td>
+                        <td><%= @provider.longitude %></td>
+                    </tr>
+                </table>
+            </div> <!-- END div-provider -->
+
+            <div id='div-amenities'>
+                
+                <b>Which Amenities Do You Provide?</b>
+                <table cellspacing='0'>
+                    <tr>
+                <%  
+                    unless @amenities.nil?
+                        counter = 0
+                        for amenity in @amenities 
+                            counter = counter + 1
+                            if counter > 3 then
+                                counter = 1
+                %>
+                    </tr>
+                    <tr>
+                <%
+                            end
+                %>
+                        <td>
+                    <%= check_box_tag 'provider_amenities[amenity_ids][]', amenity.id, @provider.amenities.include?(amenity) %> <%= amenity.name %>
+                        </td>
+                <% 
+                        end
+                    end %> 
+                    </tr>
+                </table>
+                
+            </div>
+            <!--[eoform:provider]-->
+
+            <div id='div-submit'><%= submit_tag "Save" %></div>

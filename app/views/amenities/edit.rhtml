@@ -1,0 +1,7 @@
+<%= link_to 'Show', :action => 'show', :id => @amenity %> |
+<%= link_to 'Back', :action => 'list' %>
+<h1>Editing amenity</h1>
+<% form_tag :action => 'update', :id => @amenity do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>

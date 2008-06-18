@@ -1,0 +1,6 @@
+<div id='div-searchtext'>
+    What medical service are you looking for?&nbsp;<%= text_field_with_auto_complete :search, :text, {}, {:skip_style => true} %>
+</div>
+<div id='div-address'>
+    Near My Address:&nbsp;<%= text_field :search, :starting_location, :size => '50' %><%= hidden_field :search, :distance %>
+</div>

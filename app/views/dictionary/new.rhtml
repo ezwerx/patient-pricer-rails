@@ -1,0 +1,6 @@
+<%= link_to 'Back', :action => 'list' %>
+<h1>New Word</h1>
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Save" %>
+<% end %>

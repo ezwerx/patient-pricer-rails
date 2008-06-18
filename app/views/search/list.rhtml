@@ -1,0 +1,147 @@
+<%= error_messages_for 'search' %>
+
+<div id='div-search'>
+<% form_tag({:action => :list, :id => @search}, :method => 'get') do %> 
+    <%= render :partial => 'list_form' %>
+<% end %>
+</div>
+
+<div id='div-content'>
+    
+    <div id='div-filters'>
+        
+    <% form_tag({:action => :list, :id => @search}, :method => 'get') do %> 
+    
+    <table cellspacing='0' id='tbl-distance'>
+        <tr>
+            <th colspan='3'>Find&nbsp;by&nbsp;Distance</th>
+        </tr>
+        <tr>
+            <td>within&nbsp;<%= select(:search, :distance, @distances) %>&nbsp;miles</td>
+        </tr>
+        <tr>
+            <td colspan=2 align=center><input type="submit" value="Update Search" class='submit'></td>
+        </tr>
+    </table>
+    
+    
+    <table cellspacing='0' id='tbl-amenity'>
+        <tr>
+            <th colspan='3'>Find&nbsp;by&nbsp;Amenity</th>
+        </tr>
+        
+    <%  
+        unless @amenities.nil?
+            for amenity in @amenities 
+    %>
+        <tr>
+            <td>
+                <%= check_box_tag('search[amenity_ids][]', amenity.id, @search.amenity_ids.include?(amenity.id.to_s) ) %>
+            </td>
+            <td>
+                <%= amenity.name %>
+            </td>
+        </tr>
+    <% 
+            end
+        end %> 
+        <tr>
+            <td colspan=2 align=center><input type="submit" value="Update Search" class='submit'></td>
+        </tr>
+
+    </table>
+    
+    <table cellspacing='0' id='tbl-price'>
+        <tr>
+            <th colspan='3'>Find&nbsp;by&nbsp;Price</th>
+        </tr>
+        <% for price_range in @price_ranges %>
+        <tr>
+            <td><%= radio_button_tag('search[price_range_id]',price_range.id,(price_range.id == @search.price_range_id)) %><%= price_range.to_s %></td>
+        </tr>
+        <% end %>
+        <tr>
+            <td colspan=2 align=center><input type="submit" value="Update Search" class='submit'></td>
+        </tr>
+    </table>
+    
+    <table cellspacing='0'>
+        <tr>
+            <td><%= hidden_field :search, :text %></td>
+            <td><%= hidden_field :search, :distance %></td>
+            <td><%= hidden_field :search, :starting_location %></td>
+        </tr>
+        
+    </table>
+    <% end %>
+    </div>
+    
+    <div id='div-results'>
+       
+       <div id='div-services'>
+          <% unless @provider_services.nil? %>
+          <table cellspacing='0' id='tbl-services'>
+                <tr class='head'>
+                  <th>Service</th>
+                  <th>Provider</th>
+                  <th>List&nbsp;Price</th>
+                  <th>Cash&nbsp;Price</th>
+                  <th>Distance</th>
+                  <th>Amenities</th>
+                </tr>
+
+              <tbody>    
+              <% for provider_service in @provider_services %>
+                <tr>
+                  <td><%=h provider_service.service.name %>&nbsp;</td>
+                  <td><% if (provider_service.provider.url > "") %>
+                        <%= link_to h(provider_service.provider.name), provider_service.provider.url, :popup => true %><br>
+                      <% else %>
+                        <%= h provider_service.provider.name %><br>
+                      <% end %>
+                      <%=h provider_service.provider.address1 %><br>
+                      <%=h provider_service.provider.city %>,<%=h provider_service.provider.state %>&nbsp;<%=h provider_service.provider.zip %><br>
+                      <%=h provider_service.provider.phone %></td>
+                  <td><%=h number_to_currency(provider_service.list_price) %>&nbsp;</td>
+                  <td><%=h number_to_currency(provider_service.cash_price) %>&nbsp;</td>
+                  <td><%=h provider_service.get_distance(@search.user_latitude,@search.user_longitude) %>&nbsp;</td>
+                  <td>price
+                      <ul>
+                  <% for amenity in provider_service.provider.amenities %>
+                          <li><%=h amenity.name %></li>
+                  <% end %>
+                      </ul>
+                  </td>
+                </tr>
+              <% end %>
+              </tbody>    
+
+          </table>
+          <% end %> 
+          <%= render(:partial => 'shared/paginate', :locals => {:collection => @provider_services }) -%>
+       </div>
+
+       <div id='div-sponsors'>
+           <table cellspacing='0' id='tbl-sponsors'>
+               <tr class='head'>
+                   <th>Sponsored&nbsp;Links</th>
+               </tr>
+               <% for sponsored_link in @sponsored_links %>
+               <tr>
+                   <td class='sponsored_link_title'><%= link_to h(sponsored_link.title), sponsored_link.url, :popup => true %></td>
+               </tr>
+               <tr>
+                   <td class='sponsored_link_description'><%=h sponsored_link.description %></td>
+               </tr>
+               <tr>
+                   <td class='sponsored_link_domain'><%=h sponsored_link.domain_name %></td>
+               </tr>
+               <tr>
+                   <td>&nbsp;</td>
+               </tr>
+               <% end %>
+           </table>
+       </div>
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+<h1>Services</h1>
+
+<%= link_to 'New service', :action => 'new' %>
+<%= link_to 'Search', :action => 'search' %>
+<br></br>
+<%= render(:partial => 'shared/paginate', :locals => {:collection => @services }) -%>
+
+<table border=1>
+  <tr>
+  <% for column in Service.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  <th>&nbsp;</th>
+  <th>&nbsp;</th>
+  <th>&nbsp;</th>
+  </tr>
+
+<% for service in @services %>
+  <tr>
+  <% for column in Service.content_columns %>
+    <td><%=h service.send(column.name) %>&nbsp;</td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => service %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => service %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => service }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>

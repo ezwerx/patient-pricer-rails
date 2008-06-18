@@ -1,0 +1,12 @@
+<!--[form:search]-->
+<table cellspacing='0'>
+    <tr>
+        <td>Find&nbsp;Service&nbsp;</td>
+        <td><%= text_field_with_auto_complete :search, :text, {}, {:skip_style => true} %></td>
+        <td>&nbsp;Near&nbsp;My&nbsp;Address&nbsp;</td>
+        <td><%= text_field :search, :starting_location, :size => '45' %></td>
+        <td><input type="submit" value="Search"></td>
+        <td><%= hidden_field :search, :distance %></td>
+    </tr>
+</table>
+<!--[eoform:search]-->

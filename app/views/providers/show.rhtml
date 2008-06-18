@@ -1,0 +1,61 @@
+<%= link_to 'Edit', :action => 'edit', :id => @provider %> |
+<%= link_to 'Back', :action => 'list' %>
+<h1>Provider Information</h1>
+<div id='div-provider'>
+<table class="single">
+<% for column in Provider.content_columns %>
+    <tr>
+        <td class='left-label'><b><%= column.human_name %>:&nbsp;</b></td><td><%=h @provider.send(column.name) %>&nbsp;</td>
+    </tr>
+<% end %>
+</table>
+</div>
+
+<div id='div-services'>
+<%= link_to 'Add Service', :action => 'psnew', :id => @provider %>
+<table cellspacing=0 class='list'>
+    <tr>
+        <th>CPT Code</th>
+        <th>Service Name</th>
+        <th>List Price</th>
+        <th>Cash Price</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+<% for provider_service in @provider.provider_services %>
+    <tr>
+        <td><b><%= h(provider_service.service.cpt_code.code) %>&nbsp;</b></td>
+        <td><b><%= h(provider_service.service.name) %>&nbsp;</b></td>
+        <td><%= h(number_to_currency(provider_service.list_price)) %>&nbsp;</td>
+        <td><%= h(number_to_currency(provider_service.cash_price)) %>&nbsp;</td>
+        <td><%= link_to 'Edit', :action => 'psedit', :id => provider_service %>&nbsp;</td>
+        <td><%= link_to 'Delete', :action => 'psdelete', :id => provider_service %></td>
+    </tr>
+<% end %>
+</table>
+</div>
+
+<div id='div-amenities'>
+<b>The Amenities You Provide</b>
+<table border=1>
+    <tr>
+<%  
+    unless @provider.provider_amenities.nil?
+        counter = 0
+        for provider_amenity in @provider.provider_amenities 
+            counter = counter + 1
+            if counter > 3 then
+                counter = 1
+%>
+    </tr>
+    <tr>
+<%
+            end
+%>
+        <td><%= provider_amenity.amenity.name %></td>
+<% 
+        end
+    end %> 
+    </tr>
+</table>
+</div>

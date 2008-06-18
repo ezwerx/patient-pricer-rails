@@ -1,0 +1,30 @@
+<%= error_messages_for 'word' %>
+
+<p><label for="word_text">Word: </label>
+<%= text_field 'word', 'text'  %></p>
+
+<b>Select Synonyms</b>
+<table>
+    <tr>
+<%  
+    unless @available_words.nil?
+        counter = 0
+        for available_word in @available_words 
+            counter = counter + 1
+            if counter > 3 then
+                counter = 1
+%>
+    </tr>
+    <tr>
+<%
+            end
+%>
+        <td>
+    <%= check_box_tag 'children[synonym_ids][]', available_word.id, @word.child_words.include?(available_word) %> <%= available_word.text %>
+        </td>
+<% 
+        end
+    end %> 
+    </tr>
+</table>
+<p>

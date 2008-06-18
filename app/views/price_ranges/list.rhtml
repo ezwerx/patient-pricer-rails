@@ -1,0 +1,28 @@
+<%= link_to 'New Price Range', :action => 'new' %>
+<br></br>
+<%= render(:partial => 'shared/paginate', :locals => {:collection => @price_ranges }) -%>
+<table cellspacing=0 class='list'>
+  <tr>
+    <th>Position</th>
+    <th>Low</th>
+    <th>High</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+<% for price_range in @price_ranges %>
+  <tr>
+    <td><%=h price_range.position %></td>
+    <td><%=h number_to_currency(price_range.low) %></td>
+    <td><%=h number_to_currency(price_range.high) %></td>
+    <td><%= link_to 'Up', :action => 'up', :id => price_range %></td>
+    <td><%= link_to 'Down', :action => 'down', :id => price_range %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => price_range %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => price_range %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => price_range }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>

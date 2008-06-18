@@ -1,0 +1,35 @@
+<%= link_to 'New provider', :action => 'new' %>
+<br></br>
+<%= render(:partial => 'shared/paginate', :locals => {:collection => @providers }) -%>
+
+<table cellspacing=0 class='list'>
+  <tr>
+    <th>Name</th>
+    <th>Address Line 1</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Phone</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+<% for provider in @providers %>
+  <tr>
+    <td><% if (provider.url > "") %>
+            <%= link_to h(provider.name), provider.url, :popup => true %><br>
+        <% else %>
+            <%= h provider.name %><br>
+        <% end %></td>
+    <td><%=h provider.address1 %></td>
+    <td><%=h provider.city %></td>
+    <td><%=h provider.state %></td>
+    <td><%=h provider.zip %></td>
+    <td><%=h provider.phone %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => provider %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => provider %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => provider }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>

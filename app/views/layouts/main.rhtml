@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Patient Pricer</title>
+    <%= stylesheet_link_tag 'base' %>
+    <%= if $custom_stylesheet1 > '' then stylesheet_link_tag $custom_stylesheet1 end %>
+    <%= javascript_include_tag :defaults %>
+</head>
+<body>
+    <div id="div-banner">
+        <%= link_to (company_name || "Demo"), :controller => '/search', :action => 'find' %>
+    </div> <!-- END banner -->
+    <div id="div-menu">
+        <ul id="navigation">
+            <li><a <%= 'class="active"' if $active_tab == 'home' %> href="/admin"><span>Home</span></a></li>
+            <li><a <%= 'class="active"' if $active_tab == 'dictionary' %> href="/dictionary/list"><span>Dictionary</span></a></li>
+            <li><a <%= 'class="active"' if $active_tab == 'services' %> href="/services/list"><span>Services</span></a></li>
+            <li><a <%= 'class="active"' if $active_tab == 'amenities' %> href="/amenities/list"><span>Amenities</span></a></li>
+            <li><a <%= 'class="active"' if $active_tab == 'price_ranges' %> href="/price_ranges/list"><span>Price Ranges</span></a></li>
+            <li><a <%= 'class="active"' if $active_tab == 'providers' %> href="/providers/list"><span>Providers</span></a></li>                
+            <li><a <%= 'class="active"' if $active_tab == 'sponsored_links' %> href="/sponsored_links/list"><span>Sponsored Links</span></a></li>                
+        </ul>            
+    </div> <!-- END navigation -->
+    <div id="div-main">
+        <%= @content_for_layout  %>            
+    </div> <!-- END main -->
+</body>
+</html>

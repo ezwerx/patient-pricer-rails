@@ -1,0 +1,13 @@
+<%= error_messages_for 'price_range' %>
+
+<!--[form:price_range]-->
+<p><label for="price_range_position">Position</label><br/>
+<%= @price_range.position %></p>
+
+<p><label for="price_range_low">Low</label><br/>
+<%= text_field 'price_range', 'low'  %></p>
+
+<p><label for="price_range_high">High</label><br/>
+<%= text_field 'price_range', 'high'  %></p>
+<!--[eoform:price_range]-->
+

@@ -1,0 +1,12 @@
+<%= link_to 'Edit', :action => 'edit', :id => @service %> |
+<%= link_to 'Back', :action => 'list' %>
+<h1>Service Information</h1>
+<table cellspacing=0 class='single'>
+<% for column in Service.content_columns %>
+    <tr>
+        <td><b><%= column.human_name %>:&nbsp;</b></td><td><%=h @service.send(column.name) %>&nbsp;</td>
+    </tr>
+<% end %>
+</table>
+
+

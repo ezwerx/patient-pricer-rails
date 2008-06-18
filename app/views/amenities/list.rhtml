@@ -1,0 +1,23 @@
+<%= link_to 'New amenity', :action => 'new' %>
+<br></br>
+<%= render(:partial => 'shared/paginate', :locals => {:collection => @amenities }) -%>
+<table cellspacing=0 class='list'>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+<% for amenity in @amenities %>
+  <tr>
+    <td><%=h amenity.name %></td>
+    <td><%=h amenity.description %></td>
+    <td><%= link_to 'Show', :action => 'show', :id => amenity %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => amenity %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => amenity }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+

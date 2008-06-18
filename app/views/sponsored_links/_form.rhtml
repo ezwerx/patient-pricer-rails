@@ -1,0 +1,16 @@
+<%= error_messages_for 'sponsored_link' %>
+
+<!--[form:sponsored_link]-->
+<p><label for="sponsored_link_title">Title</label><br/>
+<%= text_field 'sponsored_link', 'title'  %></p>
+
+<p><label for="sponsored_link_description">Description</label><br/>
+<%= text_area 'sponsored_link', 'description', "rows" => 5  %></p>
+
+<p><label for="sponsored_link_url">Url</label><br/>
+<%= text_area 'sponsored_link', 'url', "rows" => 5  %></p>
+
+<p><label for="sponsored_link_domain_name">Domain name</label><br/>
+<%= text_field 'sponsored_link', 'domain_name'  %></p>
+<!--[eoform:sponsored_link]-->
+

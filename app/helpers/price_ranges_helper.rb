@@ -1,0 +1,2 @@
+module PriceRangesHelper
+end

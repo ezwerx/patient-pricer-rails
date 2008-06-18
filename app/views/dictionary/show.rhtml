@@ -1,0 +1,16 @@
+<%= link_to 'Edit', :action => 'edit', :id => @word %> |
+<%= link_to 'Back', :action => 'list' %>
+<h1>Word Information</h1>
+<table cellspacing=0 class='single'>
+<% for column in Word.content_columns %>
+    <tr>
+        <td><b><%= column.human_name %>:&nbsp;</b></td><td><%=h @word.send(column.name) %>&nbsp;</td>
+    </tr>
+<% end %>
+</table>
+
+<b>First Level Synonyms</b>
+<% for child_word in @word.child_words %>
+    <br><%=h child_word.text %>
+<% end %>
+<br><br>

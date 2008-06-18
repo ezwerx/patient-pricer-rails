@@ -1,0 +1,13 @@
+<%= error_messages_for 'service' %>
+
+<!--[form:service]-->
+<p><label for="service_name">Name</label><br/>
+<%= text_field(:service, :name) %></p>
+
+<p><label for="service_cpt_code_id">CPT Code</label><br/>
+<!--<%= text_field(:service, :cpt_code_id) %></p>-->
+<%= select(:service, :cpt_code_id, @cpt_codes.collect {|p| [ p.code, p.id ] }, {:include_blank => true})  %></p>
+
+<p><label for="service_description">Description</label><br/>
+<%= text_area(:service, :description, {:cols => 50, :rows => '5'}) %></p>
+<!--[eoform:service]-->

@@ -1,0 +1,6 @@
+<%= link_to 'Show', :action => 'show', :id => @service %> |
+<%= link_to 'Back', :action => 'list' %>
+<% form_tag :action => 'update', :id => @service do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Save' %>
+<% end %>

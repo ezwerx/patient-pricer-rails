@@ -1,0 +1,11 @@
+        <div id='div-header'>
+        <%= link_to 'Show', :action => 'show', :id => @provider %> |
+        <%= link_to 'Back', :action => 'list' %>
+        <h1>Edit Provider</h1>
+        </div> <!-- END div-header -->
+        <%= error_messages_for 'provider' %>
+        <div id='div-form'>
+        <% form_tag :action => 'update', :id => @provider do %>
+          <%= render :partial => 'form' %>
+        <% end %>
+        </div> <!-- END div-form -->

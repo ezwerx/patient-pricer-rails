@@ -1,0 +1,7 @@
+<%= link_to 'Edit', :action => 'edit', :id => @price_range %> |
+<%= link_to 'Back', :action => 'list' %>
+<% for column in PriceRange.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @price_range.send(column.name) %>
+</p>
+<% end %>

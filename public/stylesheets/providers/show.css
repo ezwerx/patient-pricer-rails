@@ -1,0 +1,36 @@
+#div-provider{
+    position: relative;
+}
+
+#div-services{
+    position: relative;
+   border-top-color: #26a;
+   border-top-style: solid;
+   margin-top: 20px;
+   padding-top: 20px;
+}
+
+#div-amenities{
+    position: relative;
+   border-top-color: #26a;
+   border-top-style: solid;
+   margin-top: 20px;
+   padding-top: 20px;
+}
+
+#div-map-frame{
+    position: relative;
+   border-top-color: #26a;
+   border-top-style: solid;
+   margin-top: 20px;
+   padding-top: 20px;    
+}
+
+#div-map{
+    position: relative;
+   width: 500px; 
+   height: 300px;
+   border-color: black;
+   border-style: solid;
+   border-width: thin;
+}

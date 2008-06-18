@@ -1,0 +1,25 @@
+<%= link_to 'New service', :action => 'new' %>
+<br></br>
+<%= render(:partial => 'shared/paginate', :locals => {:collection => @services }) -%>
+
+<table cellspacing=0 class='list'>
+  <tr>
+  <th>CPT Code</th>
+  <th>Name</th>
+  <th>Description</th>
+  <th>&nbsp;</th>
+  <th>&nbsp;</th>
+  <th>&nbsp;</th>
+  </tr>
+  
+<% for service in @services %>
+  <tr>
+    <td><%=h service.cpt_code.code %>&nbsp;</td>
+    <td><%=h service.name %>&nbsp;</td>
+    <td><%=h service.description %>&nbsp;</td>
+    <td><%= link_to 'Show', :action => 'show', :id => service %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => service %></td>
+    <td><%= link_to 'Delete', { :action => 'destroy', :id => service }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>

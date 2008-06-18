@@ -1,0 +1,255 @@
+body{
+   font-family: Arial,Helvetica,sans-serif;
+   font-size: small;
+   margin-bottom: 0;
+   margin-left: 10px;
+   margin-right: 10px;
+   margin-top: 0
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+div{
+}
+
+a{
+}
+
+#div-banner{
+}
+
+#div-banner a{
+   color: #1345a9;
+   font-family: 'Times New Roman',Times,serif;
+   font-size: 3em;
+   font-weight: bold;
+   text-decoration: none
+}
+
+#div-login{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+}
+
+#div-login a{
+   text-decoration: none;    
+   color: #1345a9;
+}
+
+#div-main{
+}
+
+#div-search{
+   border-bottom-style: solid;
+   border-bottom-width: 3px;
+   border-bottom-color: #1345a9;
+   padding-bottom: 10px;
+}
+
+#div-search table {
+    width: 0;
+}
+
+#div-content{
+    margin-top: 10px;
+    position: relative;
+}
+
+#div-filters{
+   font-size: 85%;
+   width: 140px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #1345a9;
+}
+
+#div-results{
+   margin-left: 150px;
+   position:absolute;
+   top:0;
+   left:0;
+}
+
+#div-services{
+   width: 630px;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #1345a9;
+   margin-right: 200px;
+    border-style: none;
+  font-size: small;
+}
+
+#div-services th, #div-services td{
+   padding-left: 15px;
+   vertical-align: top;
+}
+
+#div-sponsors{
+   position: absolute;
+   top: 0;
+   right: 0;
+   width: 180px;
+   padding: .5em;
+   border-style: solid;
+   border-width: 1px;
+   border-color: #1345a9;
+}
+
+#div-footer{
+    text-align: center;
+    color: #1345a9;
+   font-size: 80%;
+  position: fixed;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+   background-color: #1345a9;
+   color: white;
+   padding-bottom: 5px;
+   padding-top: 5px
+}
+
+#tbl-distance{
+   text-align: center;
+}
+
+#tbl-amenity, #tbl-price{
+   margin-top: 5px;
+   border-collapse: collapse;
+   border-spacing: 0;
+}
+
+#tbl-amenity td, #tbl-price td{
+  padding: 0px;
+}
+
+#tbl-services{
+   text-align: left;
+}
+
+#tbl-services td{
+   padding-top: 10px;
+   padding-bottom: 10px;
+   border-bottom-color: #cccccc;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+}
+
+#tbl-services ul{
+    margin: 0px;
+    padding-left: 15px;
+}
+
+#tbl-sponsors th{
+   background-color: white;
+   color: #1345a9;
+}
+
+#tbl-sponsors a{
+   font-weight: bold;
+}
+
+.sponsored_link_domain{
+   color: green;
+}
+
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.pagination{
+padding: 2px;
+    margin-right: 210px;
+    margin-left: 160px;
+}
+
+.pagination ul{
+margin: 0;
+padding: 0;
+text-align: left; /*Set to "right" to right align pagination interface*/
+font-size: 16px;
+}
+
+.pagination li{
+list-style-type: none;
+display: inline;
+padding-bottom: 1px;
+}
+
+.pagination a, .pagination a:visited{
+padding: 0 5px;
+border: 1px solid #9aafe5;
+text-decoration: none; 
+color: #2e6ab1;
+}
+
+.pagination a:hover, .pagination a:active{
+border: 1px solid #2b66a5;
+color: #000;
+background-color: lightyellow;
+}
+
+.pagination li.currentpage{
+font-weight: bold;
+padding: 0 5px;
+border: 1px solid navy;
+background-color: #2e6ab1;
+color: #FFF;
+}
+
+.pagination li.disablepage{
+padding: 0 5px;
+border: 1px solid #929292;
+color: #929292;
+}
+
+.pagination li.nextpage{
+font-weight: bold;
+}
+
+* html .pagination li.currentpage, * html .pagination li.disablepage{
+   /*IE 6 and below. Adjust non linked LIs slightly to account for bugs*/
+margin-right: 5px;
+   padding-right: 0
+}
+
+div.auto_complete {
+   background: #fff;
+   text-align: left;
+   width: 350px;
+   font-weight: bold;
+}
+
+div.auto_complete ul {
+  border: 1px solid #888;
+  float: left;
+  width: 20em;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+   background: #fff;
+}
+ 
+div.auto_complete li {
+  float: left;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+} 
+
+div.auto_complete ul li.selected { 
+  background-color: #ffb; 
+}
+div.auto_complete ul strong.highlight { 
+  color: #800; 
+  margin:0;
+  padding:0;
+}

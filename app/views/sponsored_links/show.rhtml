@@ -1,0 +1,7 @@
+<%= link_to 'Edit', :action => 'edit', :id => @sponsored_link %> |
+<%= link_to 'Back', :action => 'list' %>
+<% for column in SponsoredLink.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @sponsored_link.send(column.name) %>
+</p>
+<% end %>

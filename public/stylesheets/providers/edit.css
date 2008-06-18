@@ -1,0 +1,31 @@
+#div-header{
+   position: relative;
+}
+
+#div-form{
+   position: relative;
+}
+
+#div-provider{
+   position: relative;
+}
+
+.left-label{
+   width: 90px
+}
+
+#div-services{
+   border-color: #26a;
+   border-style: solid;
+   border-width: 1px;
+   padding: 10px;
+   position: relative;
+}
+
+#div-amenities{
+   position: relative;    
+}
+
+#div-submit{
+   position: relative;
+}

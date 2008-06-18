@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+   color: #1345a9;
+   font-family: Arial,Helvetica,sans-serif;
+}
+
+form{
+    margin: 0;
+    font-weight: bold;
+}
+
+div{
+   border-style: solid;
+   border-width: 3px;
+   border-color: #1345a9;
+}
+
+/* Show only to IE 5.x PC \*/
+* html .boxhead h3 {height: 1%;}
+
+.sidebox {
+   background: url("/images/box-blue-bottom-right.gif") no-repeat bottom right;
+   background-color: #1345a9;
+   color: white;
+   width: 37em;
+}
+
+.boxhead {
+    background: url("/images/box-blue-top-right.gif") no-repeat top right;
+    margin: 0;
+    padding: 0;
+}
+
+.boxhead h3 {
+    background: url("/images/box-blue-top-left.gif") no-repeat top left;
+    margin: 0;
+}
+
+.boxbody {
+   background: url("/images/box-blue-bottom-left.gif") no-repeat bottom left;
+   margin: 0;
+   padding-bottom: 1em;
+   padding-left: 1em;
+   padding-right: 1em;
+   padding-top: 0p;
+}
+
+#div-searchtext{
+}
+
+input{
+   font-weight: bold;
+    color: black;
+}
+
+#div-address{
+    margin-top: 1em;
+}
+
+#div-login{
+   float: right
+}
+
+#div-banner{
+}
+
+a{
+   text-decoration: none;    
+   color: #1345a9;
+}
+
+#div-banner a{
+}
+
+#div-main{
+}
+
+#div-footer{
+   font-size: 70%;
+}    
+
+div.auto_complete {
+   background: #fff;
+   color: black;
+   font-size: 80%;
+   text-align: left;
+   width: 10em;
+}
+
+div.auto_complete ul {
+   background: #fff;
+  border:1px solid #888;
+  float: left;
+  width: 30em;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ 
+div.auto_complete li {
+  float: left;
+  width: 33%;
+  margin: 0;
+  padding: 0;
+} 
+
+div.auto_complete ul li.selected { 
+  background-color: #ffb; 
+}
+div.auto_complete ul strong.highlight { 
+  color: #800; 
+  margin:0;
+  padding:0;
+}

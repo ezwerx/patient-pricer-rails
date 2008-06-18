@@ -1,0 +1,14 @@
+        <div id='div-header'>
+        <%= link_to 'Edit', :action => 'edit', :id => @provider %> |
+        <%= link_to 'Back', :action => 'list' %>
+        <h1>Provider Information</h1>
+        </div> <!-- END div-header -->
+
+        <%= error_messages_for 'provider_service' %>
+
+        <div id='div-form'>
+            <% form_tag :action => 'pssave', :id => @provider_service do %>        
+                <%= render :partial => 'psform' %>
+            <% end %>
+        </div> <!-- END div-form -->
+        

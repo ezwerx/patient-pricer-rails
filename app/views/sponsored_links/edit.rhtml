@@ -1,0 +1,7 @@
+<%= link_to 'Show', :action => 'show', :id => @sponsored_link %> |
+<%= link_to 'Back', :action => 'list' %>
+<h1>Editing sponsored_link</h1>
+<% form_tag :action => 'update', :id => @sponsored_link do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<% end %>
