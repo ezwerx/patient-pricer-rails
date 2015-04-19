@@ -1,10 +1,6 @@
-Owner
-------
-Patient Pricer
-
 Overview
 --------
-blah, blah, blah
+Proof of concept app to allow consumers to shop for medical services.
 
 Tech
 ----
